@@ -9,9 +9,19 @@ return (
       source={{ uri: 'https://i.pinimg.com/736x/e3/be/30/e3be3081d56e8f0e31dbef11a83273ea.jpg' }}
       style={s.photo}
     />
-    <Text style={s.name}>Melde May / Sei</Text>
-    <Text style={s.course}>Multimedia Arts • CS126-1</Text>
-    <Text style={s.bio}>Graphic designer, Dead by Daylight enthusiast, really enjoys noodles and soup a bit too much than normal.</Text>
+
+    // Name input
+    <TextInput
+      style={s.input}
+      placeholder="Enter your name..."
+      value={name}
+      onChangeText={setName}
+    />
+
+    // Greeting
+    <Text style={s.greeting}>
+      Hello, {name || 'Guest'}!
+    </Text>
   </View>
   );
 }
@@ -20,12 +30,10 @@ return (
 const s = StyleSheet.create({
   screen: { flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'#151515', padding:20 },
   photo: { width:120, height:120, borderRadius:60 },
-  name: { fontSize:22, fontWeight:'bold', marginTop:12, color:'#ecdfdf' },
-  course: { fontSize:14, color:'#cf4897', textAlign:'center' },
-  bio: { fontSize:14, color:'#c1699d', textAlign:'center' }
+  input: { width:'100%', backgroundColor:'#474747', borderWidth:1, borderColor:'#878787', padding:12, marginBottom:15 }
 });
 
-// Basic Scripting Submission
+// Basic Scripting Submission - already in react-app repository
 const myName = "Sei";
 
 const greet = (name) => {
